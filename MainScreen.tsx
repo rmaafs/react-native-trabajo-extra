@@ -5,6 +5,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
 import { TouchableOpacity } from "react-native";
 import SideMenuScreen from "./SideMenuScreen";
+import TabsScreen from "./TabsScreen";
 
 export default function MainScreen(props: any) {
   const Stack = createStackNavigator();
@@ -18,6 +19,7 @@ export default function MainScreen(props: any) {
           component={SideMenuScreen}
           options={{ headerShown: false }}
         />
+        <Stack.Screen name="Tabs" component={TabsScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
@@ -39,7 +41,9 @@ function Screen(props: any) {
         props.navigation.navigate("SideMenu")
       )}
 
-      {renderButton("Ver Tab Navigation", () => console.log("TAB NAVIGATION"))}
+      {renderButton("Ver Tab Navigation", () =>
+        props.navigation.navigate("Tabs")
+      )}
     </View>
   );
 }
