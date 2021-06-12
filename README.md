@@ -26,3 +26,13 @@ Para usar los íconos, con sólo ejecutar `npm i` debería de funcionar. Usé `M
 ```
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 ```
+
+---
+
+### Capturas
+
+![image](https://user-images.githubusercontent.com/47652130/121788616-3e8da280-cb94-11eb-885b-3c221bebcc87.png)
+
+![image](https://user-images.githubusercontent.com/47652130/121788625-477e7400-cb94-11eb-876b-44add4842e67.png)
+
+![image](https://user-images.githubusercontent.com/47652130/121788628-4c432800-cb94-11eb-88f8-e892e63a360a.png)
