@@ -5,7 +5,7 @@ import { StyleSheet } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
-export default function TabsScreen(props: any) {
+export default function TabsScreen() {
   const Tab = createBottomTabNavigator();
 
   let tabs: any = [
@@ -66,23 +66,23 @@ export default function TabsScreen(props: any) {
   );
 }
 
-function Screen1(props: any) {
+function Screen1() {
   return <Plantilla text="Soy el tab 1" />;
 }
 
-function Screen2(props: any) {
+function Screen2() {
   return <Plantilla text="Soy el tab 2" />;
 }
 
-function Screen3(props: any) {
+function Screen3() {
   return <Plantilla text="Soy el tab 3" />;
 }
 
-function Screen4(props: any) {
+function Screen4() {
   return <Plantilla text="Soy el tab 4" />;
 }
 
-function Screen5(props: any) {
+function Screen5() {
   return <Plantilla text="Soy el tab 5" />;
 }
 
