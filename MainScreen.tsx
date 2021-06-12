@@ -4,20 +4,26 @@ import { View } from "react-native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
 import { TouchableOpacity } from "react-native";
+import SideMenuScreen from "./SideMenuScreen";
 
 export default function MainScreen(props: any) {
   const Stack = createStackNavigator();
 
   return (
-    <NavigationContainer>
+    <NavigationContainer independent={true}>
       <Stack.Navigator>
         <Stack.Screen name="Home" component={Screen} />
+        <Stack.Screen
+          name="SideMenu"
+          component={SideMenuScreen}
+          options={{ headerShown: false }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
 }
 
-function Screen() {
+function Screen(props: any) {
   return (
     <View style={styles.container}>
       <Text
@@ -29,7 +35,9 @@ function Screen() {
         Hola, este componente muestra primero el Stack Navigation.
       </Text>
 
-      {renderButton("Ver Side Menu", () => console.log("SIDEBAR"))}
+      {renderButton("Ver Side Menu", () =>
+        props.navigation.navigate("SideMenu")
+      )}
 
       {renderButton("Ver Tab Navigation", () => console.log("TAB NAVIGATION"))}
     </View>
