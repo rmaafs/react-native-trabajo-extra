@@ -6,8 +6,6 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import CustomSidebarMenu from "./CustomSidebarMenu";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import MainScreen from "./MainScreen";
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();

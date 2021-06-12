@@ -7,7 +7,7 @@ import { TouchableOpacity } from "react-native";
 import SideMenuScreen from "./SideMenuScreen";
 import TabsScreen from "./TabsScreen";
 
-export default function MainScreen(props: any) {
+export default function MainScreen() {
   const Stack = createStackNavigator();
 
   return (
