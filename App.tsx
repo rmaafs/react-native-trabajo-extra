@@ -6,6 +6,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import CustomSidebarMenu from "./CustomSidebarMenu";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -14,6 +15,15 @@ function HomeScreen() {
   return (
     <View style={styles.container}>
       <Text>Open up App.tsx to start working on your app!</Text>
+      <StatusBar style="auto" />
+    </View>
+  );
+}
+
+function Home2Screen() {
+  return (
+    <View style={styles.container}>
+      <Text>Soy el home 2 :)</Text>
       <StatusBar style="auto" />
     </View>
   );
@@ -121,6 +131,17 @@ let menus: any = [
     label: "Settings & account",
   },
 ];
+
+const printTabs = () => {
+  const Tab = createBottomTabNavigator();
+
+  return (
+    <Tab.Navigator>
+      <Tab.Screen name="Home" component={HomeScreen} />
+      <Tab.Screen name="Home2" component={Home2Screen} />
+    </Tab.Navigator>
+  );
+};
 
 export default function App() {
   return (
