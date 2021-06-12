@@ -31,7 +31,7 @@ function firstScreenStack(props: any) {
             <NavigationDrawerStructure navigationProps={props.navigation} />
           ),
           headerStyle: {
-            backgroundColor: "#f4511e", //Set Header color
+            backgroundColor: "#6101ED", //Set Header color
           },
           headerTintColor: "#fff", //Set Header text color
           headerTitleStyle: {
@@ -64,41 +64,6 @@ const NavigationDrawerStructure = (props: any) => {
     </View>
   );
 };
-
-function secondScreenStack(props: any) {
-  return (
-    <Stack.Navigator
-      initialRouteName="SecondPage"
-      screenOptions={{
-        headerLeft: () => (
-          <NavigationDrawerStructure navigationProps={props.navigation} />
-        ),
-        headerStyle: {
-          backgroundColor: "#f4511e", //Set Header color
-        },
-        headerTintColor: "#fff", //Set Header text color
-        headerTitleStyle: {
-          fontWeight: "bold", //Set Header text style
-        },
-      }}
-    >
-      <Stack.Screen
-        name="SecondPage"
-        component={HomeScreen}
-        options={{
-          title: "Second Page", //Set Header Title
-        }}
-      />
-      <Stack.Screen
-        name="ThirdPage"
-        component={HomeScreen}
-        options={{
-          title: "Third Page", //Set Header Title
-        }}
-      />
-    </Stack.Navigator>
-  );
-}
 
 let menus: any = [
   {
@@ -162,7 +127,7 @@ export default function App() {
     <NavigationContainer>
       <Drawer.Navigator
         drawerContentOptions={{
-          activeTintColor: "#e91e63",
+          activeTintColor: "#6101ED",
           itemStyle: { marginVertical: 5 },
         }}
         drawerContent={(props: any) => <CustomSidebarMenu {...props} />}
@@ -175,14 +140,15 @@ export default function App() {
                 name={item.name}
                 component={item.component}
                 options={{
-                  drawerIcon: (config) => (
+                  drawerIcon: (config: any) => (
                     <MaterialCommunityIcons
                       size={30}
                       name={item.icon}
-                      style={styles.icon}
+                      style={{ color: config.color || "#757575" }}
                     />
                   ),
                   drawerLabel: item.label,
+                  headerPressColorAndroid: "yellow",
                 }}
               />,
             ];
@@ -208,8 +174,5 @@ const styles = StyleSheet.create({
     width: 15,
     height: 15,
     marginHorizontal: 5,
-  },
-  icon: {
-    color: "#757575",
   },
 });
