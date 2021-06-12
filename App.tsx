@@ -5,6 +5,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import CustomSidebarMenu from "./CustomSidebarMenu";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -99,6 +100,63 @@ function secondScreenStack(props: any) {
   );
 }
 
+let menus: any = [
+  {
+    name: "Page1",
+    component: firstScreenStack,
+    icon: "folder",
+    label: "First page",
+  },
+  {
+    name: "Page2",
+    component: firstScreenStack,
+    icon: "account-multiple",
+    label: "Shared with me",
+  },
+  {
+    name: "Page3",
+    component: firstScreenStack,
+    icon: "star",
+    label: "Starred",
+  },
+  {
+    name: "Page4",
+    component: firstScreenStack,
+    icon: "clock-outline",
+    label: "Recent",
+  },
+  {
+    name: "Page5",
+    component: firstScreenStack,
+    icon: "check-underline-circle",
+    label: "Offline",
+  },
+  {
+    name: "Page6",
+    component: firstScreenStack,
+    icon: "upload",
+    label: "Uploads",
+  },
+  {
+    name: "Page7",
+    component: firstScreenStack,
+    icon: "folder",
+    label: "Backups",
+  },
+  {
+    name: "Page8",
+    component: firstScreenStack,
+    icon: "trash-can",
+    label: "Trash",
+  },
+  {
+    name: "Page9",
+    component: firstScreenStack,
+    icon: "cog",
+    label: "Settings & account",
+  },
+];
+
 export default function App() {
   return (
     <NavigationContainer>
@@ -107,18 +165,28 @@ export default function App() {
           activeTintColor: "#e91e63",
           itemStyle: { marginVertical: 5 },
         }}
-        drawerContent={(props) => <CustomSidebarMenu {...props} />}
+        drawerContent={(props: any) => <CustomSidebarMenu {...props} />}
       >
-        <Drawer.Screen
-          name="FirstPage"
-          options={{ drawerLabel: "First page Option" }}
-          component={firstScreenStack}
-        />
-        <Drawer.Screen
-          name="SecondPage"
-          options={{ drawerLabel: "Second page Option" }}
-          component={secondScreenStack}
-        />
+        {menus &&
+          menus.map((item: any, i: number) => {
+            return [
+              <Drawer.Screen
+                key={i}
+                name={item.name}
+                component={item.component}
+                options={{
+                  drawerIcon: (config) => (
+                    <MaterialCommunityIcons
+                      size={30}
+                      name={item.icon}
+                      style={styles.icon}
+                    />
+                  ),
+                  drawerLabel: item.label,
+                }}
+              />,
+            ];
+          })}
       </Drawer.Navigator>
     </NavigationContainer>
   );
@@ -130,5 +198,18 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
+  },
+  customItem: {
+    padding: 16,
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  iconStyle: {
+    width: 15,
+    height: 15,
+    marginHorizontal: 5,
+  },
+  icon: {
+    color: "#757575",
   },
 });

@@ -26,35 +26,15 @@ const CustomSidebarMenu = (props: any) => {
         source={{ uri: BASE_PATH + proileImage }}
         style={styles.sideMenuProfileIcon}
       />
-      <DrawerContentScrollView {...props}>
-        <DrawerItemList {...props} />
-        <DrawerItem
-          label="Visit Us"
-          onPress={() => Linking.openURL("https://aboutreact.com/")}
-        />
-        <View style={styles.customItem}>
-          <Text
-            onPress={() => {
-              Linking.openURL("https://aboutreact.com/");
-            }}
-          >
-            Rate Us
-          </Text>
-          <Image
-            source={{ uri: BASE_PATH + "star_filled.png" }}
-            style={styles.iconStyle}
-          />
-        </View>
-      </DrawerContentScrollView>
-      <Text
+      <View
         style={{
-          fontSize: 16,
-          textAlign: "center",
-          color: "grey",
+          borderBottomColor: "#EBEBEB",
+          borderBottomWidth: 1,
         }}
-      >
-        www.aboutreact.com
-      </Text>
+      />
+      <DrawerContentScrollView {...props}>
+        {<DrawerItemList {...props} />}
+      </DrawerContentScrollView>
     </SafeAreaView>
   );
 };
