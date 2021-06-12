@@ -1,17 +1,9 @@
 import React from "react";
-import {
-  SafeAreaView,
-  View,
-  StyleSheet,
-  Image,
-  Text,
-  Linking,
-} from "react-native";
-
+import { SafeAreaView, View, StyleSheet, Text } from "react-native";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 import {
   DrawerContentScrollView,
   DrawerItemList,
-  DrawerItem,
 } from "@react-navigation/drawer";
 
 const CustomSidebarMenu = (props: any) => {
@@ -21,11 +13,18 @@ const CustomSidebarMenu = (props: any) => {
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
-      {/*Top Large Image */}
-      <Image
-        source={{ uri: BASE_PATH + proileImage }}
-        style={styles.sideMenuProfileIcon}
-      />
+      <View style={styles.header}>
+        <MaterialCommunityIcons size={30} name={"cloud-circle"} />
+        <Text style={styles.name}>Sandra Adams</Text>
+        <Text style={styles.email}>
+          sandra_a88@gmail.com{" "}
+          <MaterialCommunityIcons
+            size={20}
+            name={"menu-down"}
+            style={{ textAlign: "right" }}
+          />
+        </Text>
+      </View>
       <View
         style={{
           borderBottomColor: "#EBEBEB",
@@ -40,22 +39,17 @@ const CustomSidebarMenu = (props: any) => {
 };
 
 const styles = StyleSheet.create({
-  sideMenuProfileIcon: {
-    resizeMode: "center",
-    width: 100,
-    height: 100,
-    borderRadius: 100 / 2,
-    alignSelf: "center",
+  header: {
+    paddingTop: 30,
+    margin: 10,
   },
-  iconStyle: {
-    width: 15,
-    height: 15,
-    marginHorizontal: 5,
+  name: {
+    fontWeight: "bold",
+    fontSize: 18,
   },
-  customItem: {
-    padding: 16,
-    flexDirection: "row",
-    alignItems: "center",
+  email: {
+    width: "100%",
+    color: "gray",
   },
 });
 
