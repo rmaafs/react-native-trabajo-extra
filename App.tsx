@@ -7,6 +7,7 @@ import { createDrawerNavigator } from "@react-navigation/drawer";
 import CustomSidebarMenu from "./CustomSidebarMenu";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import MainScreen from "./MainScreen";
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -144,8 +145,8 @@ const printTabs = () => {
 };
 
 export default function App() {
-  return (
-    <NavigationContainer>
+  /*return (
+    {<NavigationContainer>
       <Drawer.Navigator
         drawerContentOptions={{
           activeTintColor: "#6101ED",
@@ -175,8 +176,10 @@ export default function App() {
             ];
           })}
       </Drawer.Navigator>
-    </NavigationContainer>
-  );
+        </NavigationContainer>}
+  );*/
+
+  return <MainScreen asd={"asd"} />;
 }
 
 const styles = StyleSheet.create({
